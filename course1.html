@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Champion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <style>
+        /* Basic reset for margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column; /* Change to column layout */
+            min-height: 100vh; /* Ensure body takes full height */
+            animation: fadeIn 1s ease-in-out; /* Fade-in effect for the body */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Full-width navbar styling */
+        .navbar {
+            width: 100%;
+        }
+
+        /* Main content area styling */
+        .content {
+            flex: 1; /* Allow content area to grow and take available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container styling */
+        .course-selection-container {
+    width: 90%;
+    max-width: 500px; /* Reduced max-width */
+    background-color: white;
+    padding: 15px; /* Reduced padding */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin: 20px auto; /* Center the container */
+    text-align: center;
+    animation: slideIn 0.5s ease-in-out; /* Slide-in effect for the container */
+}
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 28px; /* Adjusted for consistency */
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Grid layout for buttons */
+        .button-grid {
+    display: center; /* Change from grid to flex */
+    justify-content: flex-end; /* Align button to the right */
+    gap: 15px; /* Maintain gap if needed */
+}
+
+        .button-grid a {
+            text-decoration: none; /* Remove underline from links */
+        }
+
+        .button-grid button {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, filter 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden; /* For ripple effect */
+        }
+
+        .button-grid button:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+        }
+
+        .button-grid button:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left:  50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s, opacity 0.5s;
+            opacity: 0;
+        }
+
+        .button-grid button:hover:after {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .course-selection-container {
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
+
+            h1 {
+                font-size: 24px; /* Adjust font size for smaller screens */
+            }
+
+            .button-grid button {
+                font-size: 14px; /* Adjust button font size for smaller screens */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">
+            <img src="nav_logo.jpg" alt="Paper Champion Logo" width="30" height="24" class="d-inline-block align-text-top">
+            Paper Champion
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a class="btn btn-outline-success me-2" href="login.html">Login</a>
+                <a class="btn btn-outline-primary" href="signup.html">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="course-selection-container">
+            <h1>Select Course</h1>
+            <div class="button-grid">
+                <a href="semester1_mca.html"><button>Mca</button></a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: <a href="#" class="text-light">Email</a></p>
+                    <p>Phone: +1 (234) 567-890</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <p><a href="#" class="text-light">Facebook</a></p>
+                    <p><a href="#" class="text-light">Twitter</a></p>
+                    <p><a href="#" class="text-light">Instagram</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Copyright</h5>
+                    <p>2023 Paper Champion.Copyright.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-8e2e9e9f8b4e6e3c7b5e3c3e3e3c3e3c3e3c3e3c3e3c3e3c3e3c3e3c3e3c3e3" crossorigin="anonymous"></script>
+</body>
+</html>
